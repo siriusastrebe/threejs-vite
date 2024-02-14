@@ -7,12 +7,13 @@ import jsynchronous from 'jsynchronous/jsynchronous-client.js';
 
 const socket = io();
 
-console.log(jsynchronous);
+window.jsynchronous = jsynchronous;
 
 jsynchronous.send = (data) => socket.emit('msg', data);
-socket.on('msg', (data) => jsynchronous.onmessage(data));
+socket.on('msg', (data) => { jsynchronous.onmessage(data) });
 
 const $ynced = jsynchronous('object');
+
 $ynced.$on('changes', (event) => {
   console.log('change', event);
 });

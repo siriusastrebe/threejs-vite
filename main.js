@@ -2,20 +2,20 @@ import './style.css'
 import * as THREE from 'three';
 
 
-// import { io } from "socket.io-client";
-// import jsynchronous from 'jsynchronous/jsynchronous-client.js';
+import { io } from "socket.io-client";
+import jsynchronous from 'jsynchronous/jsynchronous-client.js';
 
-// const socket = io();
-// 
-// console.log(jsynchronous);
-// 
-// jsynchronous.send = (data) => socket.emit('msg', data);
-// socket.on('msg', (data) => jsynchronous.onmessage(data));
-// 
-// const $ynced = jsynchronous('object');
-// $ynced.$on('changes', (event) => {
-//   console.log('change', event);
-// });
+const socket = io();
+
+console.log(jsynchronous);
+
+jsynchronous.send = (data) => socket.emit('msg', data);
+socket.on('msg', (data) => jsynchronous.onmessage(data));
+
+const $ynced = jsynchronous('object');
+$ynced.$on('changes', (event) => {
+  console.log('change', event);
+});
 
 const width = window.innerWidth, height = window.innerHeight;
 
